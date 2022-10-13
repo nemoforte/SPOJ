@@ -1,4 +1,5 @@
-/*PRIME_T - Liczby Pierwsze
+/*
+PRIME_T - Liczby Pierwsze
 Sprawdź, które spośród danych liczb są liczbami pierwszymi
 
 Input
@@ -17,7 +18,8 @@ Input:
 Output:
 TAK
 NIE
-NIE*/
+NIE
+*/
 
 import 'dart:io';
 

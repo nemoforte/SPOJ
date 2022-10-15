@@ -6,9 +6,10 @@ main() {
    for (int i = 0; i < D; i++) {
  
     	String input = stdin.readLineSync();
-    	int base = int.parse(input[0]);
-    	int exp = int.parse(input[2]);
-    	
+    	List inputS = input.split(" ");
+    	int base = int.parse(inputS[0]);
+    	int exp = int.parse(inputS[1]);
+    	base %= 10;
     	if (exp > 0) {
     		
     		exp = exp % 4;

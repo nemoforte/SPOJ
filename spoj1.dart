@@ -1,19 +1,13 @@
 import 'dart:io';
  
 main() {
-  String? nn = stdin.readLineSync(); //SPOJ will approve after deleting "?"
-  if (nn != null) {
-    int n = int.parse(nn);
+    int n = int.parse(stdin.readLineSync());
     String result;
     for (int i = 0; i < n; i++) {
-      String? rresult = stdin.readLineSync(); //SPOJ will approve after deleting "?"
-      if (rresult != null) {
-        int rrresult = int.parse(rresult);
-        result = iffirst(rrresult) == true ? "TAK" : "NIE";
+        int R = int.parse(stdin.readLineSync());
+        result = iffirst(R) == true ? "TAK" : "NIE";
   	    print(result);
-      }
     }
-  } 
 }
  
 dynamic iffirst(int v) {

@@ -2,16 +2,6 @@ import "dart:io";
  
 main() {
  
-   var fucktorial = Map();
-   fucktorial[2] = '0 2';
-   fucktorial[3] = '0 6';
-   fucktorial[4] = '2 4';
-   fucktorial[5] = '2 0';
-   fucktorial[6] = '2 0';
-   fucktorial[7] = '4 0';
-   fucktorial[8] = '2 0';
-   fucktorial[9] = '8 0';
- 
    int D = int.parse(stdin.readLineSync());
    for (int i = 0; i < D; i++) {
  
@@ -26,7 +16,14 @@ main() {
  
       } else {
  
-        print(fucktorial[n]);
+        int w = 1;
+        for (int j = 2; j <= n; j++){
+        	w *= j;
+    	}
+ 
+    	int s = w % 10;
+    	int t = (w ~/ 10) % 10;
+    	print('$t' + ' ' + '$s');
     }
   }
 }

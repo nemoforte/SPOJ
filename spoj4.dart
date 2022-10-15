@@ -3,7 +3,7 @@ FLAMASTE - Flamaster
 Autor: Michał Franczak
 Flamaster
 Kasia niedawno poznała wszystkie literki w szkole. Z wielką pasją potrafiła całe dnie spędzać na pisaniu długich słów swoim ulubionym flamastrem. Pisała i pisała "tasiemce" tak długo, aż flamaster wypisał się. Kasia posmutniała. Z trudem, ale udało jej się uprosić swoją mamę, aby kupiła jej nowy pisak. Musiała jednak obiecać, że tym razem będzie bardziej oszczędna przy jego używaniu żeby wystarczył na dłużej. Kasia zaczęła zastanawiać się w jaki sposób będzie mogła zrealizować obietnicę daną mamie.
-
+ 
 Postanowiła, że aby zaoszczędzić wkład flamastra będzie wypisywała skróconą wersję wymyślanych wyrazów. Jeśli miała zamiar napisać więcej niż dwie takie same literki obok siebie w wyrazie, to teraz napisze literkę a następnie liczbę, określającą ilość wystąpień tej literki.
 Zadanie
 Twoim zadaniem jest dla zadanego wyrazu, który wymyśliła Kasia, podanie skróconej wersji tego wyrazu.
@@ -24,48 +24,52 @@ ABCDEF
 ABBC3D4E5FGGHIIJK3L
 A10B16
 */
-
+ 
 import 'dart:io';
  
 void main() {
  
-	String D = stdin.readLineSync();
-	String N = "";
-	if (D.length == 1){
+	int C = int.parse(stdin.readLineSync());
+	for (int k = 1; k <= C; k++){
  
-		N = D;
+		String D = stdin.readLineSync();
+		String N = "";
+		if (D.length == 1){
  
-	} else {
+			N = D;
  
-		for (int i = 0; i <= D.length-2; i++){
+		} else {
  
-			N += D[i];
+			for (int i = 0; i <= D.length-2; i++){
  
-			if (D[i] == D[i+1]) {
+				N += D[i];
  
-				int r = 1;
+				if (D[i] == D[i+1]) {
  
-				for (int j = i+1; j <= D.length-1; j++){
+					int r = 1;
  
-					if (D[i] == D[j]){
-						
-						r += 1;
-						
+					for (int j = i+1; j <= D.length-1; j++){
+ 
+						if (D[i] == D[j]){
+ 
+							r += 1;
+ 
+						}
+ 
 					}
-				
-				}
-				
-			N += r.toString();
-				
-			i += r-1;
-				
-			}
-		}
-		
-		if (D[D.length-2] != D[D.length-1]){
-			N += D[D.length-1];
-		}
  
+				N += r.toString();
+ 
+				i += r-1;
+ 
+				}
+			}
+ 
+			if (D[D.length-2] != D[D.length-1]){
+				N += D[D.length-1];
+			}
+ 
+		}
+		print(N);
 	}
-	print(N);
-}
+}	

@@ -91,27 +91,43 @@ List windmill(int a) {
  
 	if (a == 1) {
  
-		var x = List.generate(2*a, (i) => List.generate(2*a, (j) => '*'));
+		var w = List.generate(2*a, (i) => List.generate(2*a, (j) => '*'));
  
-		return x;
+		return w;
  
 	}
- 
+	
 	if (a > 1) {
- 
-		var x = List.generate(2*a, (i) => List.generate(2*a, (j) => '?'));
- 
-		var y = windmill(a-1);
- 
-		for (int k = 1; k <= (2*a)-2; k++) {
- 
-			for (int h = 1; h <= (2*a)-2; h++) {
- 
-			x[k][h] = y[k-1][h-1];
- 
+		
+		var w = List.generate(2*a, (i) => List.generate(2*a, (j) => '*'));
+		
+		var m = windmill(a-1);
+		
+		for (int y = 1; y <= (2*a)-2; y++) {
+			
+			for (int x = 1; x <= (2*a)-2; x++) {
+				
+			w[y][x] = m[y-1][x-1];
+			
 			}
 		}
- 
-		return x;
+		
+		for (int x = 1; x <= a-1; x++) {
+			w[0][x] = '.';	
+		}
+		
+		for (int y = (2*a)-2; y >= a; y--) {
+			w[y][0] = '.';	
+		}
+		
+		for (int x = (2*a)-2; x >= a; x--) {
+			w[(2*a)-1][x] = '.';	
+		}
+		
+		for (int y = 1; y <= a-1; y++) {
+			w[y][(2*a)-1] = '.';	
+		}
+		
+		return w;
 	}
 }

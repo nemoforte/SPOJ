@@ -76,9 +76,7 @@ main() {
  
 		List table = windmill(r);
  
- 
- 
-		for (int i = 0; i <= r; i++) {
+		for (int i = 0; i <= (2*r)-1; i++) {
  
 			print(table[i].join(' '));
  
@@ -97,5 +95,23 @@ List windmill(int a) {
  
 		return x;
  
+	}
+ 
+	if (a > 1) {
+ 
+		var x = List.generate(2*a, (i) => List.generate(2*a, (j) => '?'));
+ 
+		var y = windmill(a-1);
+ 
+		for (int k = 1; k <= (2*a)-2; k++) {
+ 
+			for (int h = 1; h <= (2*a)-2; h++) {
+ 
+			x[k][h] = y[k-1][h-1];
+ 
+			}
+		}
+ 
+		return x;
 	}
 }

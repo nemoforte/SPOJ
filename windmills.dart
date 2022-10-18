@@ -69,25 +69,42 @@ Wyjście:
 import 'dart:io';
  
 main() {
+	
+	bool sign;
  
 	int r = int.parse(stdin.readLineSync());
  
 	while (r != 0) {
+		
+		if (r > 0) {
+			
+			sign = true;
+			
+		} else {
+			
+			sign = false;
+			
+		}
+		
+		r = r.abs();
  
-		List table = windmill(r);
+		List table = windmill(r, sign);
  
-		for (int i = 0; i <= (2*r)-1; i++) {
+		for (int i = 0; i <= (2*r)-2; i++) {
  
 			print(table[i].join(' '));
  
 		}
- 
+		
+		print('${table[(2*r)-1].join(' ')}\n');
+
 		r = int.parse(stdin.readLineSync());
  
 	}
+	
 } 
  
-List windmill(int a) {
+List windmill(int a, bool s) {
  
 	if (a == 1) {
  
@@ -95,13 +112,11 @@ List windmill(int a) {
  
 		return w;
  
-	}
-	
-	if (a > 1) {
+	} else if (a > 1 && s == true) {
 		
 		var w = List.generate(2*a, (i) => List.generate(2*a, (j) => '*'));
 		
-		var m = windmill(a-1);
+		var m = windmill(a-1, s);
 		
 		for (int y = 1; y <= (2*a)-2; y++) {
 			
@@ -129,5 +144,39 @@ List windmill(int a) {
 		}
 		
 		return w;
+		
+	} else {
+		
+		var w = List.generate(2*a, (i) => List.generate(2*a, (j) => '*'));
+		
+		var m = windmill(a-1, s);
+		
+		for (int y = 1; y <= (2*a)-2; y++) {
+			
+			for (int x = 1; x <= (2*a)-2; x++) {
+				
+			w[y][x] = m[y-1][x-1];
+			
+			}
+		}
+		
+		for (int x = a; x <= (2*a)-2; x++) {
+			w[0][x] = '.';	
+		}
+		
+		for (int y = a-1; y >= 1; y--) {
+			w[y][0] = '.';	
+		}
+		
+		for (int x = a-1; x >= 1; x--) {
+			w[(2*a)-1][x] = '.';	
+		}
+		
+		for (int y = a; y <= (2*a)-2; y++) {
+			w[y][(2*a)-1] = '.';	
+		}
+		
+	return w;
+	
 	}
 }

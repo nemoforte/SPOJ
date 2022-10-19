@@ -18,9 +18,9 @@ Output:
 0
 */
  
-import "dart:io";
+import 'dart:io';
  
-main() {
+void main() {
  
    int t = int.parse(stdin.readLineSync());
    for (int i = 0; i < t; i++) {
@@ -28,7 +28,7 @@ main() {
    		int r = 0;
     	int n = int.parse(stdin.readLineSync());
     	String k = stdin.readLineSync();
-    	List input = k.split(" ");
+    	List<String> input = k.split(' ');
     	for (int j = 0; j < n; j++) {
     		r += int.parse(input[j]);
     	}

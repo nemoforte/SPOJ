@@ -23,24 +23,21 @@ NIE
 
 import 'dart:io';
 
-main() {
+void main() {
   int r = 0;
   stdout.writeln('podaj liczbe testow');
   String? g = stdin.readLineSync();
-  if (g != null){
-
+  if (g != null) {
     int n = int.parse(g);
-    
-    for (int i = 1; i <= n; i++){
 
+    for (int i = 1; i <= n; i++) {
       stdout.writeln('sprawdz liczbe');
       String? k = stdin.readLineSync();
-      if (k != null){
-
+      if (k != null) {
         int s = int.parse(k);
 
         if (s >= 1) {
-          for (int j = s-1; j>1; j--){
+          for (int j = s - 1; j > 1; j--) {
             r = s % j;
             if (r == 0) {
               break;

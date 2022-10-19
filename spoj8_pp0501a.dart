@@ -32,11 +32,11 @@ Output:
  
 import 'dart:io';
  
-main() {
+void main() {
     int t = int.parse(stdin.readLineSync());
     for (int i = 0; i < t; i++) {
         String input = stdin.readLineSync();
-        List inputS = input.split(' ');
+        List<String> inputS = input.split(' ');
     	int n = int.parse(inputS[0]);
     	int m = int.parse(inputS[1]);
         int R = nwd(n, m);

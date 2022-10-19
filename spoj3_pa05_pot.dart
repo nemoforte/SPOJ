@@ -24,40 +24,33 @@ poprawną odpowiedzią jest:
 7
 */
 
-import "dart:io";
- 
-main() {
- 
-   int D = int.parse(stdin.readLineSync());
+import 'dart:io';
 
-   for (int i = 0; i < D; i++) {
- 
-    	String input = stdin.readLineSync();
-    	List inputS = input.split(" ");
-    	int base = int.parse(inputS[0]);
-    	int exp = int.parse(inputS[1]);
-    	base %= 10;
-    	if (exp > 0) {
-    		
-    		exp = exp % 4;
+void main() {
+  int D = int.parse(stdin.readLineSync());
 
-    		if (exp == 0){
-    			exp = 4;
-    		}
-    		
-    		int R = base;
-    		for (int j = 1; j < exp; j++){
-    			R *= j;
-    		}
-    		
-    		R = R % 10;
-    		print(R);
-    		
-    	} else {
-    		
-    		print(1);
-    		
-    	}
-    
-   }
+  for (int i = 0; i < D; i++) {
+    String input = stdin.readLineSync();
+    List<String> inputS = input.split(' ');
+    int base = int.parse(inputS[0]);
+    int exp = int.parse(inputS[1]);
+    base %= 10;
+    if (exp > 0) {
+      exp = exp % 4;
+
+      if (exp == 0) {
+        exp = 4;
+      }
+
+      int R = base;
+      for (int j = 1; j < exp; j++) {
+        R *= j;
+      }
+
+      R = R % 10;
+      print(R);
+    } else {
+      print(1);
+    }
+  }
 }

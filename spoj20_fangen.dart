@@ -68,7 +68,7 @@ Wyjście:
  
 import 'dart:io';
  
-main() {
+void main() {
 	
 	bool sign;
  
@@ -88,7 +88,7 @@ main() {
 		
 		r = r.abs();
  
-		List table = windmill(r, sign);
+		List<String> table = windmill(r, sign);
  
 		for (int i = 0; i <= (2*r)-2; i++) {
  
@@ -104,7 +104,7 @@ main() {
 	
 } 
  
-List windmill(int a, bool s) {
+List<String> windmill(int a, bool s) {
  
 	if (a == 1) {
  
@@ -147,7 +147,7 @@ List windmill(int a, bool s) {
 		
 	} else {
 		
-		var w = List.generate(2*a, (i) => List.generate(2*a, (j) => '*'));
+		var w = List<String>.generate(2*a, (i) => List<String>.generate(2*a, (j) => '*'));
 		
 		var m = windmill(a-1, s);
 		

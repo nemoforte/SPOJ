@@ -24,9 +24,9 @@ poprawną odpowiedzią jest:
 2 4
 */
 
-import "dart:io";
+import 'dart:io';
  
-main() {
+void main() {
  
    int D = int.parse(stdin.readLineSync());
    for (int i = 0; i < D; i++) {
@@ -49,7 +49,7 @@ main() {
  
     	int s = w % 10;
     	int t = (w ~/ 10) % 10;
-    	print('$t' + ' ' + '$s');
+    	print('$t $s');
     }
   }
 }

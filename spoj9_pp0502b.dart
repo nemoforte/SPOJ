@@ -19,15 +19,15 @@ Wyjście:
 11 2 3
 */
  
-import "dart:io";
+import 'dart:io';
  
 main() {
  
 	int t = int.parse(stdin.readLineSync());
 	for (int i = 0; i < t; i++) {
 		String input = stdin.readLineSync();
-		List list1 = input.split(" ");
-		List list2 = [];
+		List<String> list1 = input.split(' ');
+		List<String> list2 = [];
     	for (int j = int.parse(list1[0]); j >= 1 ; j--) {
     		list2.add(list1[j]);
     	}

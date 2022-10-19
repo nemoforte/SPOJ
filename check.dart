@@ -1,6 +1,6 @@
-import "dart:io";
- 
-main() {
+import 'dart:html';
+
+void main() {
  
    var fucktorial = Map();
    fucktorial[2] = '0 2';

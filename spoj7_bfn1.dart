@@ -25,9 +25,9 @@ Wyjście:
 5 0
 */
  
-import "dart:io";
+import 'dart:io';
  
-main() {
+void main() {
  
 	int t = int.parse(stdin.readLineSync());
 
@@ -51,6 +51,6 @@ main() {
 				}
         
 		}
-	print(rl+' '+'$c');
+	print('$rl $c');
 	}
 }

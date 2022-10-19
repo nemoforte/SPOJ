@@ -26,7 +26,7 @@ wynik:
 22
 */
 
-import "dart:io";
+import 'dart:io';
  
 void main() {
  
@@ -34,7 +34,7 @@ void main() {
    for (int i = 0; i < D; i++) {
  
     	String input = stdin.readLineSync();
-    	List<String> inputS = input.split(" ");
+    	List<String> inputS = input.split(' ');
     	int n = int.parse(inputS[0]);
     	int N = int.parse(inputS[1]);
     	int x;

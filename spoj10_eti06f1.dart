@@ -32,14 +32,14 @@ Wyjście:
 1374446.79
 */
 
-import "dart:io";
-import "dart:math";
+import 'dart:io';
+import 'dart:math';
  
-main() {
+void main() {
 	
 	double pi = 3.141592654;
 	String input = stdin.readLineSync();
-	List list1 = input.split(" ");
+	List<String> list1 = input.split(' ');
 	double r = double.parse(list1[0]);
 	double d = double.parse(list1[1])/2;
 	double x = sqrt((r*r)-(d*d));

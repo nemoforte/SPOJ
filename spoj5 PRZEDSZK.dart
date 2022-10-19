@@ -28,13 +28,13 @@ wynik:
 
 import "dart:io";
  
-main() {
+void main() {
  
    int D = int.parse(stdin.readLineSync());
    for (int i = 0; i < D; i++) {
  
     	String input = stdin.readLineSync();
-    	List inputS = input.split(" ");
+    	List<String> inputS = input.split(" ");
     	int n = int.parse(inputS[0]);
     	int N = int.parse(inputS[1]);
     	int x;

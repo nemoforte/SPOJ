@@ -31,12 +31,13 @@ void main() {
   int C = int.parse(stdin.readLineSync());
   for (int k = 1; k <= C; k++) {
     String D = stdin.readLineSync();
-    String N = '';
+    StringBuffer N = StringBuffer();
     if (D.length == 1) {
-      N = D;
+      N.write(D);
     } else {
       for (int i = 0; i <= D.length - 2; i++) {
-        N += D[i];
+        
+        N.write(D[i]);
 
         if (D[i] == D[i + 1]) {
           int r = 1;
@@ -47,14 +48,14 @@ void main() {
             }
           }
 
-          N += r.toString();
+          N.write(r.toString());
 
           i += r - 1;
         }
       }
 
       if (D[D.length - 2] != D[D.length - 1]) {
-        N += D[D.length - 1];
+        N.write(D[D.length - 1]);
       }
     }
     print(N);

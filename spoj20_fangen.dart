@@ -67,7 +67,7 @@ Wyjście:
 */
  
 import 'dart:io';
- 
+
 void main() {
 	
 	bool sign;
@@ -92,11 +92,11 @@ void main() {
  
 		for (int i = 0; i <= (2*r)-2; i++) {
  
-			print(table[i].join(' '));
+			print(table[i]);
  
 		}
 		
-		print('${table[(2*r)-1].join(' ')}\n');
+		print('${table[(2*r)-1]}\n');
 
 		r = int.parse(stdin.readLineSync());
  

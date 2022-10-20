@@ -45,16 +45,20 @@ void main() {
 }
  
  int nwd(int a, int b) {
-	int x;
+  int bigger;
+  int smaller;
     if (a < b) {
-    	x = b;
-    	b = a;
-    	a = x;
+    	bigger = b;
+      smaller = a;
+    } else {
+      bigger = a;
+      smaller = b;
     }
-    while (a % b != 0) {
-		x = b;
-		b = a % b;
-		a = x;
+
+    while (bigger % smaller != 0) {
+		int x = smaller;
+		smaller = bigger % smaller;
+		bigger = x;
     }
-    return b;
+    return smaller;
 }

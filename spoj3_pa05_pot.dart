@@ -44,7 +44,7 @@ void main() {
 
       int R = base;
       for (int j = 1; j < exp; j++) {
-        R *= j;
+        R *= base;
       }
 
       R = R % 10;

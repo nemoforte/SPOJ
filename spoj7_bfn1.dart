@@ -34,20 +34,20 @@ void main() {
 	for (int i = 0; i < t; i++) {
 		int c = 0;
 		String lr = stdin.readLineSync();
-		String rl = '';
+		StringBuffer rl = StringBuffer();
 
 		for (int j = lr.length-1; j >= 0 ; j--) {
-			rl += lr[j]; 
+			rl.write(lr[j]); 
 		}
 
-		while (rl != lr) {
+		while (rl.toString() != lr) {
 			c++;
-			int sum = int.parse(lr) + int.parse(rl);
+			int sum = int.parse(lr) + int.parse(rl.toString());
 			lr = sum.toString();
-			rl = '';
+			rl.clear();
 
 				for (int j = lr.length-1; j >= 0 ; j--) {
-				rl += lr[j];
+				rl.write(lr[j]);
 				}
         
 		}

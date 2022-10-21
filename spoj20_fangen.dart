@@ -65,118 +65,95 @@ Wyjście:
 **..***.
 *...****
 */
- 
+
 import 'dart:io';
 
 void main() {
-	
-	bool sign;
- 
-	int r = int.parse(stdin.readLineSync());
- 
-	while (r != 0) {
-		
-		if (r > 0) {
-			
-			sign = true;
-			
-		} else {
-			
-			sign = false;
-			
-		}
-		
-		r = r.abs();
- 
-		List<String> table = windmill(r, sign);
- 
-		for (int i = 0; i <= (2*r)-2; i++) {
- 
-			print(table[i]);
- 
-		}
-		
-		print('${table[(2*r)-1]}\n');
+  String sign;
 
-		r = int.parse(stdin.readLineSync());
- 
-	}
-	
-} 
- 
-List<String> windmill(int a, bool s) {
- 
-	if (a == 1) {
- 
-		var w = List.generate(2*a, (i) => List.generate(2*a, (j) => '*'));
- 
-		return w;
- 
-	} else if (a > 1 && s == true) {
-		
-		var w = List.generate(2*a, (i) => List.generate(2*a, (j) => '*'));
-		
-		var m = windmill(a-1, s);
-		
-		for (int y = 1; y <= (2*a)-2; y++) {
-			
-			for (int x = 1; x <= (2*a)-2; x++) {
-				
-			w[y][x] = m[y-1][x-1];
-			
-			}
-		}
-		
-		for (int x = 1; x <= a-1; x++) {
-			w[0][x] = '.';	
-		}
-		
-		for (int y = (2*a)-2; y >= a; y--) {
-			w[y][0] = '.';	
-		}
-		
-		for (int x = (2*a)-2; x >= a; x--) {
-			w[(2*a)-1][x] = '.';	
-		}
-		
-		for (int y = 1; y <= a-1; y++) {
-			w[y][(2*a)-1] = '.';	
-		}
-		
-		return w;
-		
-	} else {
-		
-		var w = List<String>.generate(2*a, (i) => List<String>.generate(2*a, (j) => '*'));
-		
-		var m = windmill(a-1, s);
-		
-		for (int y = 1; y <= (2*a)-2; y++) {
-			
-			for (int x = 1; x <= (2*a)-2; x++) {
-				
-			w[y][x] = m[y-1][x-1];
-			
-			}
-		}
-		
-		for (int x = a; x <= (2*a)-2; x++) {
-			w[0][x] = '.';	
-		}
-		
-		for (int y = a-1; y >= 1; y--) {
-			w[y][0] = '.';	
-		}
-		
-		for (int x = a-1; x >= 1; x--) {
-			w[(2*a)-1][x] = '.';	
-		}
-		
-		for (int y = a; y <= (2*a)-2; y++) {
-			w[y][(2*a)-1] = '.';	
-		}
-		
-	return w;
-	
-	}
+  int r = int.parse(stdin.readLineSync());
+
+  while (r != 0) {
+    if (r > 0) {
+      sign = '+';
+    } else {
+      sign = '-';
+    }
+
+    r = r.abs();
+
+    List<List<String>> table = windmill(r, sign);
+
+    for (int i = 0; i <= (2 * r) - 2; i++) {
+      print(table[i].join(' '));
+    }
+
+    print('${table[(2 * r) - 1].join(' ')}\n');
+
+    r = int.parse(stdin.readLineSync());
+  }
+}
+
+List<List<String>> windmill(int a, String s) {
+  if (a == 1) {
+    List<List<String>> w = List<List<String>>.generate(2 * a, (int i) => List<String>.generate(2 * a, (int j) => '*'));
+
+    return w;
+  } else if (a > 1 && s == '+') {
+    List<List<String>> w = List<List<String>>.generate(2 * a, (int i) => List<String>.generate(2 * a, (int j) => '*'));
+
+    List<List<String>> m = windmill(a - 1, s);
+
+    for (int y = 1; y <= (2 * a) - 2; y++) {
+      for (int x = 1; x <= (2 * a) - 2; x++) {
+        w[y][x] = m[y - 1][x - 1];
+      }
+    }
+
+    for (int x = 1; x <= a - 1; x++) {
+      w[0][x] = '.';
+    }
+
+    for (int y = (2 * a) - 2; y >= a; y--) {
+      w[y][0] = '.';
+    }
+
+    for (int x = (2 * a) - 2; x >= a; x--) {
+      w[(2 * a) - 1][x] = '.';
+    }
+
+    for (int y = 1; y <= a - 1; y++) {
+      w[y][(2 * a) - 1] = '.';
+    }
+
+    return w;
+  } else {
+    List<List<String>> w = List<List<String>>.generate(2 * a, (int i) => List<String>.generate(2 * a, (int j) => '*'));
+
+    List<List<String>> m = windmill(a - 1, s);
+
+    for (int y = 1; y <= (2 * a) - 2; y++) {
+      for (int x = 1; x <= (2 * a) - 2; x++) {
+        w[y][x] = m[y - 1][x - 1];
+      }
+    }
+
+    for (int x = a; x <= (2 * a) - 2; x++) {
+      w[0][x] = '.';
+    }
+
+    for (int y = a - 1; y >= 1; y--) {
+      w[y][0] = '.';
+    }
+
+    for (int x = a - 1; x >= 1; x--) {
+      w[(2 * a) - 1][x] = '.';
+    }
+
+    for (int y = a; y <= (2 * a) - 2; y++) {
+      w[y][(2 * a) - 1] = '.';
+    }
+
+    return w;
+  }
 }

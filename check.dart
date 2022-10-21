@@ -1,8 +1,8 @@
-import 'dart:html';
+import 'dart:io';
 
 void main() {
  
-   var fucktorial = Map();
+   Map<int, String> fucktorial = <int, String>{};
    fucktorial[2] = '0 2';
    fucktorial[3] = '0 6';
    fucktorial[4] = '2 4';

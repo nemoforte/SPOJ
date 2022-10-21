@@ -36,7 +36,6 @@ void main() {
       N.write(D);
     } else {
       for (int i = 0; i <= D.length - 2; i++) {
-        
         N.write(D[i]);
 
         if (D[i] == D[i + 1]) {

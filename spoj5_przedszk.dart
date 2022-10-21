@@ -27,26 +27,24 @@ wynik:
 */
 
 import 'dart:io';
- 
+
 void main() {
- 
-   int D = int.parse(stdin.readLineSync());
-   for (int i = 0; i < D; i++) {
- 
-    	String input = stdin.readLineSync();
-    	List<String> inputS = input.split(' ');
-    	int n = int.parse(inputS[0]);
-    	int N = int.parse(inputS[1]);
-    	int x;
-    	if (n > N) {
-    		x = n;
-    		n = N;
-    		N = x;
-    	}
-    	int R = N;
-    	while (R % n != 0 || R % N != 0) {
-    		R += N;
-    	}
+  int D = int.parse(stdin.readLineSync());
+  for (int i = 0; i < D; i++) {
+    String input = stdin.readLineSync();
+    List<String> inputS = input.split(' ');
+    int n = int.parse(inputS[0]);
+    int N = int.parse(inputS[1]);
+    int x;
+    if (n > N) {
+      x = n;
+      n = N;
+      N = x;
+    }
+    int R = N;
+    while (R % n != 0 || R % N != 0) {
+      R += N;
+    }
     print(R);
-   }
+  }
 }

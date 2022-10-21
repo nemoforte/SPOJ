@@ -18,19 +18,18 @@ Wyjście:
 7 6 5 4 3 2 1
 11 2 3
 */
- 
+
 import 'dart:io';
- 
+
 void main() {
- 
-	int t = int.parse(stdin.readLineSync());
-	for (int i = 0; i < t; i++) {
-		String input = stdin.readLineSync();
-		List<String> list1 = input.split(' ');
-		List<String> list2 = <String>[];
-    	for (int j = int.parse(list1[0]); j >= 1 ; j--) {
-    		list2.add(list1[j]);
-    	}
-		print(list2.join(' '));
-	}
+  int t = int.parse(stdin.readLineSync());
+  for (int i = 0; i < t; i++) {
+    String input = stdin.readLineSync();
+    List<String> list1 = input.split(' ');
+    List<String> list2 = <String>[];
+    for (int j = int.parse(list1[0]); j >= 1; j--) {
+      list2.add(list1[j]);
+    }
+    print(list2.join(' '));
+  }
 }

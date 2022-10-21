@@ -29,36 +29,36 @@ Output:
 4
 3
 */
- 
+
 import 'dart:io';
- 
+
 void main() {
-    int t = int.parse(stdin.readLineSync());
-    for (int i = 0; i < t; i++) {
-        String input = stdin.readLineSync();
-        List<String> inputS = input.split(' ');
-    	int n = int.parse(inputS[0]);
-    	int m = int.parse(inputS[1]);
-        int R = nwd(n, m);
-  	    print(R);
-    }
+  int t = int.parse(stdin.readLineSync());
+  for (int i = 0; i < t; i++) {
+    String input = stdin.readLineSync();
+    List<String> inputS = input.split(' ');
+    int n = int.parse(inputS[0]);
+    int m = int.parse(inputS[1]);
+    int R = nwd(n, m);
+    print(R);
+  }
 }
- 
- int nwd(int a, int b) {
+
+int nwd(int a, int b) {
   int bigger;
   int smaller;
-    if (a < b) {
-    	bigger = b;
-      smaller = a;
-    } else {
-      bigger = a;
-      smaller = b;
-    }
+  if (a < b) {
+    bigger = b;
+    smaller = a;
+  } else {
+    bigger = a;
+    smaller = b;
+  }
 
-    while (bigger % smaller != 0) {
-		int x = smaller;
-		smaller = bigger % smaller;
-		bigger = x;
-    }
-    return smaller;
+  while (bigger % smaller != 0) {
+    int x = smaller;
+    smaller = bigger % smaller;
+    bigger = x;
+  }
+  return smaller;
 }

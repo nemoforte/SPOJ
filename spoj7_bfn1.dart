@@ -24,33 +24,31 @@ Wyjście:
 1111 3
 5 0
 */
- 
+
 import 'dart:io';
- 
+
 void main() {
- 
-	int t = int.parse(stdin.readLineSync());
+  int t = int.parse(stdin.readLineSync());
 
-	for (int i = 0; i < t; i++) {
-		int c = 0;
-		String lr = stdin.readLineSync();
-		StringBuffer rl = StringBuffer();
+  for (int i = 0; i < t; i++) {
+    int c = 0;
+    String lr = stdin.readLineSync();
+    StringBuffer rl = StringBuffer();
 
-		for (int j = lr.length-1; j >= 0 ; j--) {
-			rl.write(lr[j]); 
-		}
+    for (int j = lr.length - 1; j >= 0; j--) {
+      rl.write(lr[j]);
+    }
 
-		while (rl.toString() != lr) {
-			c++;
-			int sum = int.parse(lr) + int.parse(rl.toString());
-			lr = sum.toString();
-			rl.clear();
+    while (rl.toString() != lr) {
+      c++;
+      int sum = int.parse(lr) + int.parse(rl.toString());
+      lr = sum.toString();
+      rl.clear();
 
-				for (int j = lr.length-1; j >= 0 ; j--) {
-				rl.write(lr[j]);
-				}
-        
-		}
-	print('$rl $c');
-	}
+      for (int j = lr.length - 1; j >= 0; j--) {
+        rl.write(lr[j]);
+      }
+    }
+    print('$rl $c');
+  }
 }
